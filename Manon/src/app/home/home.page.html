@@ -1,0 +1,134 @@
+<ion-header>
+  <ion-toolbar >
+    <ion-title id = "Tt">
+      Manon
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content >
+  <div *ngIf = "n==0">
+    <ion-card id = "yello" padding>
+    <ion-text id = "t1"> Welcome, I see it´s your first time here. Why don't you tell me your name?</ion-text>
+   <div>
+    <ion-label position ="stacked" id = "t1">Your Name: </ion-label>
+    <ion-input [(ngModel)] = "n_name"  required type = "text" id = "justObey"> </ion-input>
+    </div>
+    </ion-card>
+
+
+    <ion-card id = "whito" padding>
+      <ion-text id = "t1"> What about your preferences? </ion-text>
+      <ion-list >
+        <ion-item *ngFor="let entry of form">
+          <ion-label>{{entry.val}}</ion-label>
+          <ion-checkbox slot="end" [(ngModel)]="entry.isChecked"></ion-checkbox>
+
+        </ion-item>
+      </ion-list>
+      <div class="ion-padding">
+          <ion-button expand="block" type="submit" class="ion-no-margin" (click) = "setStats()">Upload</ion-button>
+        </div>
+      </ion-card>
+
+      <ion-card id = "cyan" padding>
+      <ion-text id = "t1"> Let's program an alarm everymorning to keep on track  </ion-text>
+      <div class="ion-padding">
+          <ion-button expand="block" type="submit" class="ion-no-margin" (click) = "scheduleNotification()">Program Every 24hr</ion-button>
+        </div>
+      </ion-card>
+
+
+  </div>
+
+   <div *ngIf = "n==1">
+    <ion-card id= "Welcome" color = "primary" padding>
+      <ion-card-title id= "crdtit"> Good Morning, {{name}} </ion-card-title>
+      <ion-text id = "t2"> What a great time to check your morning feed</ion-text>
+      <div id = "t1">
+          {{currentTime}}
+      </div>
+
+      <div id = "t1">
+         <ion-text> Temperature it´s quite usual, don´t you think?</ion-text>
+      </div>
+    </ion-card>
+
+    <div>
+      <ion-card id = "purp" padding>
+        <ion-card-title id = "crdtit"> Check the world news</ion-card-title>
+        <ion-text id ="t2"> Click to see what´s happening in the globe </ion-text>
+        <div class="ion-padding">
+            <ion-button expand="block" type="submit" class="ion-no-margin" (click) = "jumpNews()">Checkout News</ion-button>
+          </div>
+      </ion-card>
+    </div>
+
+
+
+      <div>
+        <ion-card id = "cyan" padding>
+          <ion-card-title id = "t1"> Check yout own to do list</ion-card-title>
+          <ion-text id = "t2"> Click To watch your duties </ion-text>
+          <div class="ion-padding">
+              <ion-button expand="block" type="submit" class="ion-no-margin" (click) = "jumpToDo()">Check them out</ion-button>
+            </div>
+        </ion-card>
+      </div>
+
+
+    <div *ngIf = "form[0].isChecked">
+      <ion-card id= "Sports" id = "orange" padding>
+        <ion-card-title> Sports  </ion-card-title>
+
+        <ion-text id = "t2"> Click the button to see what´s new on sports</ion-text>
+        <div class="ion-padding">
+            <ion-button expand="block" type="submit" class="ion-no-margin" (click) = "jumpSports()">Checkout Sports</ion-button>
+          </div>
+
+      </ion-card>
+    </div>
+
+    <div *ngIf = "form[1].isChecked">
+        <ion-card  id = "orange" padding>
+          <ion-card-title> Music </ion-card-title>
+          <ion-text id = "t2"> Click the button to see what´s popping</ion-text>
+          <div class="ion-padding">
+              <ion-button expand="block" type="submit" class="ion-no-margin" (click) = "jumpMusic()">Checkout Music</ion-button>
+            </div>
+
+        </ion-card>
+      </div>
+
+      <div *ngIf = "form[2].isChecked">
+        <ion-card  id = "orange" padding>
+          <ion-card-title> Art </ion-card-title>
+          <ion-text id = "t2"> Click the button to see what´s arting</ion-text>
+          <div class="ion-padding">
+              <ion-button expand="block" type="submit" class="ion-no-margin" (click) = "jumpArt()">Checkout Art</ion-button>
+            </div>
+
+        </ion-card>
+      </div>
+
+  </div>
+
+  <!--<div>
+    <ion-button expand = "block" (click) = "scheduleNotification()" color = "dark"> Schedule</ion-button>
+    <ion-button expand = "block" (click) = "recurringNotification()" color = "dark"> Every Minute</ion-button>
+    <ion-button expand = "block" (click) = "repeatingDaily()" color = "dark"> Daily </ion-button>
+    <ion-button expand = "block" (click) = "getAll()" color = "dark"> Get All</ion-button>
+  </div>-->
+
+  <!--<div>
+    <ion-list>
+      <ion-item *ngFor = "let n of scheduled">
+        <ion-label text-wrap>
+          {{n.id}} - {{n.title}}
+          <p> Trigger: {{n.trigger| json }}</p>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+  </div>-->
+
+</ion-content>

@@ -1,0 +1,50 @@
+<ion-header>
+    <ion-toolbar >
+      <ion-title id = "Tt">Your To Do List</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content>
+
+   <ion-card id = "orange" color = "danger" padding>
+    <ion-card-title> Return to home </ion-card-title>
+     <ion-text id = "t2"> Click the button to return to home </ion-text>
+      <div class="ion-padding">
+        <ion-button expand="block" type="submit" class="ion-no-margin" (click) = "jumpHome()">Return</ion-button>
+       </div>
+
+     </ion-card>
+
+     <ion-card id = "purp" padding>
+       <ion-card-title> Do you want to add more appointments?</ion-card-title>
+       <div>
+       <ion-label position ="stacked" id = "t1">Your new appointment: </ion-label>
+       <ion-input [(ngModel)] = "apoin"  required type = "text" id = "justObey"> </ion-input>
+       </div>
+       <div>
+       <ion-label position ="stacked" id = "t1"> Done by wich date: </ion-label>
+       <ion-input [(ngModel)] = "doneby"  required type = "text" id = "justObey"> </ion-input>
+        <div class="ion-padding">
+          <ion-button expand="block" type="submit" class="ion-no-margin" (click)="add(id)">Add</ion-button>
+         </div>
+       </div>
+     </ion-card>
+
+     <ion-card id = "whito">
+       <ion-card-title id = "t1">Your appointments: </ion-card-title>
+     </ion-card>
+
+     <ion-card *ngFor = "let n of list" id = "purp">
+        <ion-item>
+          <ion-label position = "stacked">To do: </ion-label>
+            {{n.do}}
+        </ion-item>
+        <ion-item>
+           <ion-label position = "stacked">Done by: </ion-label>
+          {{n.date}}
+         </ion-item>
+         <ion-button (click) = "erase(n.id)"  color= "danger"> Remove this appointment  </ion-button>
+
+
+      </ion-card>
+  </ion-content>

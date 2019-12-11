@@ -1,0 +1,65 @@
+<ion-header>
+  <ion-toolbar >
+    <ion-title id = "Tt">Your personal feed</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+ 
+ <ion-card id = "orange" color = "danger" padding>
+  <ion-card-title> Return to home </ion-card-title> 
+   <ion-text id = "t2"> Click the button to return to home </ion-text>
+    <div class="ion-padding">
+      <ion-button expand="block" type="submit" class="ion-no-margin" (click) = "jumpHome()">Return</ion-button>
+     </div>
+          
+   </ion-card>
+
+   <div *ngIf= "n==0">
+   <ion-card id = "whito" padding>
+      <ion-text id = "t1"> Hello , Got any favorite Sports news website? </ion-text>
+      <ion-list>
+        <ion-item *ngFor="let entry of form">
+          <ion-label>{{entry.val}}</ion-label>
+          <ion-checkbox slot="end" [(ngModel)]="entry.isChecked"></ion-checkbox>
+          
+        </ion-item>
+      </ion-list>
+      <div class="ion-padding">
+          <ion-button expand="block" type="submit" class="ion-no-margin" (click) = "getFavSite()">Upload</ion-button>
+        </div>
+   </ion-card>
+    </div>
+
+    <div *ngIf = "form[0].isChecked == 1">
+        <ion-card id = "cyan" padding>
+          <ion-card-title> Fox Sports</ion-card-title>
+          <ion-button expand = "block" type = "submit" class= "ion-no-margin" (click) = "openUrl()"> Check latest news </ion-button> <!-- Preferible preguntar como hacer que corra automaticamente-->
+        </ion-card>
+    </div>
+
+    <div *ngIf = "form[1].isChecked == 1">
+        <ion-card id = "cyan" padding>
+          <ion-card-title> US Today</ion-card-title>
+          <ion-button expand = "block" type = "submit" class= "ion-no-margin" (click) = "openUrl()"> Check latest news </ion-button> <!-- Preferible preguntar como hacer que corra automaticamente-->
+        </ion-card>
+    </div>
+
+    <div *ngIf = "form[2].isChecked">
+        <ion-card id = "cyan" padding>
+          <ion-card-title> BBC News</ion-card-title>
+          <ion-button expand = "block" type = "submit" class= "ion-no-margin" (click) = "openUrl()"> Check latest news </ion-button> <!-- Preferible preguntar como hacer que corra automaticamente-->
+        </ion-card>
+    </div>
+
+    <div *ngIf = "form[3].isChecked">
+        <ion-card id = "cyan" padding>
+          <ion-card-title> NBC News</ion-card-title>
+          <ion-button expand = "block" type = "submit" class= "ion-no-margin" (click) = "openUrl()"> Check latest news </ion-button> <!-- Preferible preguntar como hacer que corra automaticamente-->
+        </ion-card>
+    </div>
+
+    
+
+
+</ion-content>

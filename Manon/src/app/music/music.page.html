@@ -1,0 +1,61 @@
+<ion-header>
+    <ion-toolbar color>
+      <ion-title id = "Tt">Music</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content>
+   
+   <ion-card id = "orange" color = "danger" padding>
+    <ion-card-title> Return to home </ion-card-title> 
+     <ion-text id = "t2"> Click the button to return to home </ion-text>
+      <div class="ion-padding">
+        <ion-button expand="block" type="submit" class="ion-no-margin" (click) = "jumpHome()">Return</ion-button>
+       </div>
+            
+     </ion-card>
+  
+     <div *ngIf= "n==0">
+     <ion-card id = "whito" padding>
+        <ion-text id = "t1"> Hello , Got any favorite Music content website? </ion-text>
+        <ion-list>
+          <ion-item *ngFor="let entry of form">
+            <ion-label>{{entry.val}}</ion-label>
+            <ion-checkbox slot="end" [(ngModel)]="entry.isChecked"></ion-checkbox>
+            
+          </ion-item>
+        </ion-list>
+        <div class="ion-padding">
+            <ion-button expand="block" type="submit" class="ion-no-margin" (click) = "getFavSite()">Upload</ion-button>
+          </div>
+     </ion-card>
+      </div>
+  
+      <div *ngIf = "opc == 0">
+          <ion-card id = "cyan" padding>
+            <ion-card-title> Spotify</ion-card-title>
+            <ion-button expand = "block" type = "submit" class= "ion-no-margin" (click) = "openUrl()"> Check latest news </ion-button> <!-- Preferible preguntar como hacer que corra automaticamente-->
+          </ion-card>
+      </div>
+  
+      <div *ngIf = "opc == 1">
+          <ion-card id = "cyan" padding>
+            <ion-card-title> Billboard</ion-card-title>
+            <ion-button expand = "block" type = "submit" class= "ion-no-margin" (click) = "openUrl()"> Check latest news </ion-button> <!-- Preferible preguntar como hacer que corra automaticamente-->
+          </ion-card>
+      </div>
+  
+      <div *ngIf = "opc == 2">
+          <ion-card id = "cyan" padding>
+            <ion-card-title> Music News</ion-card-title>
+            <ion-button expand = "block" type = "submit" class= "ion-no-margin" (click) = "openUrl()"> Check latest news </ion-button> <!-- Preferible preguntar como hacer que corra automaticamente-->
+          </ion-card>
+      </div>
+  
+      <div *ngIf = "opc == 3">
+          <ion-card id = "cyan" padding>
+            <ion-card-title> Rolling Stone</ion-card-title>
+            <ion-button expand = "block" type = "submit" class= "ion-no-margin" (click) = "openUrl()"> Check latest news </ion-button> <!-- Preferible preguntar como hacer que corra automaticamente-->
+          </ion-card>
+      </div>
+  </ion-content>
